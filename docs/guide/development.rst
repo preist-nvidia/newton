@@ -3,54 +3,16 @@ Development Guide
 
 This document is a guide for developers who want to contribute to the project or understand its internal workings in more detail.
 
-Environment setup
------------------
+Python Dependency Management
+----------------------------
 
-Clone the repository
-^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: console
-
-    git clone git@github.com:newton-physics/newton.git
-    cd newton
-
-Using uv
-^^^^^^^^
-
-`uv <https://docs.astral.sh/uv/>`_ is a Python package and project manager.
-
-Install uv:
-
-.. tab-set::
-    :sync-group: os
-
-    .. tab-item:: macOS / Linux
-        :sync: linux
-
-        .. code-block:: console
-
-            curl -LsSf https://astral.sh/uv/install.sh | sh
-
-    .. tab-item:: Windows
-        :sync: windows
-
-        .. code-block:: console
-
-            powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-Run basic examples:
-
-.. code-block:: console
-
-    # An example with basic dependencies
-    uv run newton/examples/example_quadruped.py
-
-    # An example that requires extras
-    uv run --extra dev newton/examples/example_humanoid.py
+UV Lock File
+^^^^^^^^^^^^
 
 When using uv, the `lockfile <https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile>`__
-(``uv.lock``) is used to resolve project dependencies
-into exact versions for reproducibility among different machines.
+(``uv.lock``) is used to resolve project dependencies into exact versions for reproducibility among different machines.
+
+We maintain a lockfile in the root of the repository that pins exact versions of all dependencies and their transitive dependencies.
 
 Sometimes, a dependency in the lockfile needs to be updated to a newer version.
 This can be done by running ``uv lock --upgrade-package <package-name>``:
@@ -68,58 +30,6 @@ uv also provides a command to update all dependencies in the lockfile:
     uv lock -U
 
 Remember to commit ``uv.lock`` after running a command that updates the lockfile.
-
-Using venv
-^^^^^^^^^^
-
-These instructions are meant for users who wish to set up a development environment using `venv <https://docs.python.org/3/library/venv.html>`__
-or Conda (e.g. from `Miniforge <https://github.com/conda-forge/miniforge>`__).
-
-.. tab-set::
-    :sync-group: os
-
-    .. tab-item:: macOS / Linux
-        :sync: linux
-
-        .. code-block:: console
-
-            python -m venv .venv
-            source .venv/bin/activate
-
-    .. tab-item:: Windows (console)
-        :sync: windows
-
-        .. code-block:: console
-
-            python -m venv .venv
-            .venv\Scripts\activate.bat
-
-    .. tab-item:: Windows (PowerShell)
-        :sync: windows-ps
-
-        .. code-block:: console
-
-            python -m venv .venv
-            .venv\Scripts\Activate.ps1
-
-Installing dependencies including optional ones:
-
-.. code-block:: console
-
-    python -m pip install mujoco --pre -f https://py.mujoco.org/
-    python -m pip install warp-lang --pre -U -f https://pypi.nvidia.com/warp-lang/
-    python -m pip install git+https://github.com/google-deepmind/mujoco_warp.git@main
-    python -m pip install -e .[dev]
-
-Run basic examples:
-
-.. code-block:: console
-
-    # An example with basic dependencies
-    python newton/examples/example_quadruped.py
-
-    # An example that requires extras
-    python newton/examples/example_humanoid.py
 
 Running the tests
 -----------------
@@ -140,16 +50,16 @@ Pass ``--help`` to either runner to see all available flags.
         
         .. code-block:: console
 
-            # install all extras and run tests
-            uv run --extra dev -m newton.tests
+            # install test extras and run tests
+            uv run --extra test -m newton.tests
 
     .. tab-item:: venv
         :sync: venv
 
         .. code-block:: console
 
-            # install dev extras (including testing & coverage deps)
-            python -m pip install -e .[dev]
+            # install test extras (including testing & coverage deps)
+            python -m pip install -e .[test]
             # run tests
             python -m newton.tests
 
@@ -164,7 +74,7 @@ To generate a coverage report:
         .. code-block:: console
             
             # append the coverage flags:
-            uv run --extra dev -m newton.tests --coverage --coverage-html htmlcov
+            uv run --extra test -m newton.tests --coverage --coverage-html htmlcov
 
     .. tab-item:: venv
         :sync: venv
