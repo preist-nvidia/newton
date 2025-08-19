@@ -51,7 +51,7 @@ def test_gravity(test: TestControlForce, device, solver_fn, up_axis: newton.Axis
 devices = get_test_devices()
 solvers = {
     "featherstone": lambda model: newton.solvers.SolverFeatherstone(model, angular_damping=0.0),
-    "mujoco_c": lambda model: newton.solvers.SolverMuJoCo(
+    "mujoco_cpu": lambda model: newton.solvers.SolverMuJoCo(
         model, use_mujoco_cpu=True, update_data_interval=0, disable_contacts=True
     ),
     "mujoco_warp": lambda model: newton.solvers.SolverMuJoCo(
