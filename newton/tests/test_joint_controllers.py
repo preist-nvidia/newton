@@ -103,6 +103,8 @@ solvers = {
 }
 for device in devices:
     for solver_name, solver_fn in solvers.items():
+        if device.is_cuda and solver_name == "mujoco_cpu":
+            continue
         # add_function_test(TestJointController, f"test_floating_body_linear_{solver_name}", test_floating_body, devices=[device], solver_fn=solver_fn, test_angular=False)
         add_function_test(
             TestJointController,

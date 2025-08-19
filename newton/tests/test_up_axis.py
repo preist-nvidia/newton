@@ -62,6 +62,8 @@ solvers = {
 }
 for device in devices:
     for solver_name, solver_fn in solvers.items():
+        if device.is_cuda and solver_name == "mujoco_cpu":
+            continue
         add_function_test(
             TestControlForce,
             f"test_gravity_y_up_{solver_name}",
