@@ -52,10 +52,10 @@ devices = get_test_devices()
 solvers = {
     "featherstone": lambda model: newton.solvers.SolverFeatherstone(model, angular_damping=0.0),
     "mujoco_c": lambda model: newton.solvers.SolverMuJoCo(
-        model, use_mujoco=True, update_data_interval=0, disable_contacts=True
+        model, use_mujoco_cpu=True, update_data_interval=0, disable_contacts=True
     ),
     "mujoco_warp": lambda model: newton.solvers.SolverMuJoCo(
-        model, use_mujoco=False, update_data_interval=0, disable_contacts=True
+        model, use_mujoco_cpu=False, update_data_interval=0, disable_contacts=True
     ),
     "xpbd": lambda model: newton.solvers.SolverXPBD(model, angular_damping=0.0),
     "semi_implicit": lambda model: newton.solvers.SolverSemiImplicit(model, angular_damping=0.0),

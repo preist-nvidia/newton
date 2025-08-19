@@ -178,8 +178,8 @@ def test_shapes_on_plane(test: TestRigidContact, device, solver_fn):
 devices = get_test_devices()
 solvers = {
     "featherstone": lambda model: newton.solvers.SolverFeatherstone(model),
-    "mujoco_c": lambda model: newton.solvers.SolverMuJoCo(model, use_mujoco=True),
-    "mujoco_warp": lambda model: newton.solvers.SolverMuJoCo(model, use_mujoco=False),
+    "mujoco_c": lambda model: newton.solvers.SolverMuJoCo(model, use_mujoco_cpu=True),
+    "mujoco_warp": lambda model: newton.solvers.SolverMuJoCo(model, use_mujoco_cpu=False),
     "xpbd": lambda model: newton.solvers.SolverXPBD(model, iterations=2),
     "semi_implicit": lambda model: newton.solvers.SolverSemiImplicit(model),
 }
