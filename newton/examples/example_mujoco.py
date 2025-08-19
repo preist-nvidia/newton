@@ -347,7 +347,10 @@ if __name__ == "__main__":
     parser.add_argument("--num-envs", type=int, default=1, help="Total number of simulated environments.")
     parser.add_argument("--use-cuda-graph", default=True, action=argparse.BooleanOptionalAction)
     parser.add_argument(
-        "--use-mujoco-cpu", default=False, action=argparse.BooleanOptionalAction, help="Use Mujoco-C CPU (Not yet supported)."
+        "--use-mujoco-cpu",
+        default=False,
+        action=argparse.BooleanOptionalAction,
+        help="Use Mujoco-C CPU (Not yet supported).",
     )
     parser.add_argument(
         "--headless", default=False, action=argparse.BooleanOptionalAction, help="Run the simulation in headless mode."
