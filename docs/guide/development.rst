@@ -3,6 +3,11 @@ Development Guide
 
 This document is a guide for developers who want to contribute to the project or understand its internal workings in more detail.
 
+Installation
+------------
+
+To install Newton, see the :doc:`installation` guide.
+
 Python Dependency Management
 ----------------------------
 
