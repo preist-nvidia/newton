@@ -29,27 +29,25 @@ A local installation of the `CUDA Toolkit <https://developer.nvidia.com/cuda-dow
 
 We recommend using the `uv <https://docs.astral.sh/uv/>`_ Python package and project manager. It will automatically setup a version-locked Python environment based on the `uv.lock <https://github.com/newton-physics/newton/blob/main/uv.lock>`_ file that the Newton team maintains.
 
-Dependency Groups
-^^^^^^^^^^^^^^^^^
+Extra Dependencies
+^^^^^^^^^^^^^^^^^^
 
-Newton's only mandatory dependency is `NVIDIA Warp <https://github.com/NVIDIA/warp>`_. We define a set of additional dependency groups in the `pyproject.toml <https://github.com/newton-physics/newton/blob/main/pyproject.toml>`_ file. The groups are:
+Newton's only mandatory dependency is `NVIDIA Warp <https://github.com/NVIDIA/warp>`_. We define additional dependency sets in the `pyproject.toml <https://github.com/newton-physics/newton/blob/main/pyproject.toml>`_ file. The sets are:
 
 .. list-table::
    :widths: 20 80
    :header-rows: 1
 
-   * - Group
+   * - Set
      - Purpose
    * - ``sim``
      - Full simulation dependencies, including MuJoCo and mesh processing dependencies
    * - ``examples``
      - Dependencies for running examples; includes sim dependencies and extra rendering dependencies
-   * - ``examples-rl``
-     - Dependencies for running examples plus PyTorch for inference of RL-trained control policies
+   * - ``torch-cu12``
+     - PyTorch dependency needed to run examples that inference RL-trained control policies
    * - ``dev``
      - Dependencies for development; examples dependencies plus debugging-help packages
-   * - ``testing``
-     - Dependencies for running ``newton.tests`` unit tests
    * - ``docs``
      - Dependencies for building the documentation
 

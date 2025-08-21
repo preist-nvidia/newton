@@ -29,8 +29,14 @@ requires-python = ">=3.9"
 dependencies = ["warp-lang>=1.7.0.dev20250625"]
 
 [project.optional-dependencies]
-# Core simulation dependencies (mesh processing, MuJoCo, and USD)
+# Core simulation dependencies
 sim = [
+    # MuJoCo simulation
+    "mujoco-warp>=0.0.1",            # MuJoCo, warp-accelerated
+    "mujoco>=3.3.3.dev769049331",    # MuJoCo physics engine
+]
+
+importers = [
     # Mesh processing dependencies used by ModelBuilder.approximate_meshes
     "scipy",                         # for convex hull approximation
     "fast-simplification>=0.1.11",   # for mesh simplification
@@ -39,37 +45,27 @@ sim = [
     "trimesh>=4.6.8",                # for mesh operations and V-HACD
     "pycollada>=0.9",                # for loading mesh data with trimesh
 
-    # MuJoCo simulation dependencies
-    "mujoco-warp>=0.0.1",            # MuJoCo Warp integration
-    "mujoco>=3.3.3.dev769049331",    # MuJoCo physics engine
-
-    # USD dependencies
-    "usd-core>=25.5 ; platform_machine != 'aarch64'",  # USD core libraries
+    # USD core libraries
+    "usd-core>=25.5 ; platform_machine != 'aarch64'",
 ]
 
 # Examples dependencies including rendering
 examples = [
-    "newton-physics[sim]",           # includes simulation dependencies
+    "newton-physics[sim]",           # include simulation dependencies
+    "newton-physics[importers]",     # include import dependencies
     "pyglet>=2.1.6",                 # for OpenGL viewer
     "GitPython>=3.1.44",             # for downloading assets via newton.utils.download_asset()
 ]
 
-# Examples with RL dependencies
-examples-rl = [
-    "newton-physics[examples]",      # includes examples dependencies
-    "torch>=2.7.0",                  # PyTorch for RL examples
+torch-cu12 = [
+    "torch>=2.7.0",                  # Cuda 12 PyTorch
 ]
 
-# Unit-Testing Dependencies
-test = [
-    "newton-physics[examples-rl]",   # for running examples tests where RL policies are executed
-]
-
-# Development: Contains all w/o torch, plus development debugging dependencies
+# Development and Testing
+# Contains all w/o torch, plus development debugging dependencies
 dev = [
-    "newton-physics[examples]",    # includes examples, which pulls in sim and visualization
-    "tqdm>=4.67.1",                # for progress bars
-    "matplotlib>=3.9.4",           # for debug visualization and articulation plotting
+    "newton-physics[examples]",      # includes examples, which pulls in sim and visualization
+    "tqdm>=4.67.1",                  # for progress bars
 ]
 
 # Documentation dependencies
@@ -102,7 +98,7 @@ explicit = true
 mujoco-warp = { git = "https://github.com/google-deepmind/mujoco_warp" }
 warp-lang = { index = "nvidia", marker = "sys_platform != 'darwin'" }
 mujoco = { index = "mujoco" }
-torch = [{ index = "pytorch-cu128", extra = "examples-rl" }]
+torch = [{ index = "pytorch-cu128", extra = "torch-cu12" }]
 
 [dependency-groups]
 dev = ["asv>=0.6.4", "coverage[toml]>=7.8.0"]

@@ -55,16 +55,16 @@ Pass ``--help`` to either runner to see all available flags.
         
         .. code-block:: console
 
-            # install test extras and run tests
-            uv run --extra test -m newton.tests
+            # install development extras and run tests
+            uv run --extra dev -m newton.tests
 
     .. tab-item:: venv
         :sync: venv
 
         .. code-block:: console
 
-            # install test extras (including testing & coverage deps)
-            python -m pip install -e .[test]
+            # install dev extras (including testing & coverage deps)
+            python -m pip install -e .[dev]
             # run tests
             python -m newton.tests
 
@@ -79,7 +79,7 @@ To generate a coverage report:
         .. code-block:: console
             
             # append the coverage flags:
-            uv run --extra test -m newton.tests --coverage --coverage-html htmlcov
+            uv run --extra dev -m newton.tests --coverage --coverage-html htmlcov
 
     .. tab-item:: venv
         :sync: venv
