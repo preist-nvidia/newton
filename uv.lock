@@ -935,6 +935,7 @@ dependencies = [
 dev = [
     { name = "alphashape" },
     { name = "coacd" },
+    { name = "coverage", extra = ["toml"] },
     { name = "fast-simplification" },
     { name = "gitpython" },
     { name = "mujoco" },
@@ -997,7 +998,6 @@ torch-cu12 = [
 [package.dev-dependencies]
 dev = [
     { name = "asv" },
-    { name = "coverage", extra = ["toml"] },
 ]
 
 [package.metadata]
@@ -1008,6 +1008,7 @@ requires-dist = [
     { name = "coacd", marker = "extra == 'dev'", specifier = ">=1.0.7" },
     { name = "coacd", marker = "extra == 'examples'", specifier = ">=1.0.7" },
     { name = "coacd", marker = "extra == 'importers'", specifier = ">=1.0.7" },
+    { name = "coverage", extras = ["toml"], marker = "extra == 'dev'", specifier = ">=7.8.0" },
     { name = "fast-simplification", marker = "extra == 'dev'", specifier = ">=0.1.11" },
     { name = "fast-simplification", marker = "extra == 'examples'", specifier = ">=0.1.11" },
     { name = "fast-simplification", marker = "extra == 'importers'", specifier = ">=0.1.11" },
@@ -1048,10 +1049,7 @@ requires-dist = [
 provides-extras = ["dev", "docs", "examples", "importers", "sim", "torch-cu12"]
 
 [package.metadata.requires-dev]
-dev = [
-    { name = "asv", specifier = ">=0.6.4" },
-    { name = "coverage", extras = ["toml"], specifier = ">=7.8.0" },
-]
+dev = [{ name = "asv", specifier = ">=0.6.4" }]
 
 [[package]]
 name = "numpy"

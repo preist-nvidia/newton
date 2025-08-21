@@ -61,11 +61,13 @@ torch-cu12 = [
     "torch>=2.7.0",                  # Cuda 12 PyTorch
 ]
 
+
 # Development and Testing
 # Contains all w/o torch, plus development debugging dependencies
 dev = [
     "newton-physics[examples]",      # includes examples, which pulls in sim and visualization
     "tqdm>=4.67.1",                  # for progress bars
+    "coverage[toml]>=7.8.0",         # for code coverage testing
 ]
 
 # Documentation dependencies
@@ -101,7 +103,7 @@ mujoco = { index = "mujoco" }
 torch = [{ index = "pytorch-cu128", extra = "torch-cu12" }]
 
 [dependency-groups]
-dev = ["asv>=0.6.4", "coverage[toml]>=7.8.0"]
+dev = ["asv>=0.6.4"]
 
 [tool.ruff]
 cache-dir = ".cache/ruff"
