@@ -29,6 +29,9 @@ A local installation of the `CUDA Toolkit <https://developer.nvidia.com/cuda-dow
 
 We recommend using the `uv <https://docs.astral.sh/uv/>`_ Python package and project manager. It will automatically setup a version-locked Python environment based on the `uv.lock <https://github.com/newton-physics/newton/blob/main/uv.lock>`_ file that the Newton team maintains.
 
+.. note::
+    During the alpha development phase, we recommend using uv. When Newton is stabilized and regularly publishing to PyPI we will update this guide to make the pip install approach the recommended method.
+
 Extra Dependencies
 ^^^^^^^^^^^^^^^^^^
 
