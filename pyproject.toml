@@ -36,6 +36,7 @@ sim = [
     "mujoco>=3.3.3.dev769049331",    # MuJoCo physics engine
 ]
 
+# Asset import and mesh processing dependencies
 importers = [
     # Mesh processing dependencies used by ModelBuilder.approximate_meshes
     "scipy",                         # for convex hull approximation
@@ -49,7 +50,7 @@ importers = [
     "usd-core>=25.5 ; platform_machine != 'aarch64'",
 ]
 
-# Examples dependencies including rendering
+# Examples dependencies including visualization
 examples = [
     "newton-physics[sim]",           # include simulation dependencies
     "newton-physics[importers]",     # include import dependencies
@@ -57,10 +58,10 @@ examples = [
     "GitPython>=3.1.44",             # for downloading assets via newton.utils.download_asset()
 ]
 
+# Extra dependency needed to run examples that inference an RL policy
 torch-cu12 = [
     "torch>=2.7.0",                  # Cuda 12 PyTorch
 ]
-
 
 # Development and Testing
 # Contains all w/o torch, plus development debugging dependencies

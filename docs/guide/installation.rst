@@ -44,13 +44,15 @@ Newton's only mandatory dependency is `NVIDIA Warp <https://github.com/NVIDIA/wa
    * - Set
      - Purpose
    * - ``sim``
-     - Full simulation dependencies, including MuJoCo and mesh processing dependencies
+     - Simulation dependencies, including MuJoCo
+   * - ``importers``
+     - Asset import and mesh processing dependencies
    * - ``examples``
-     - Dependencies for running examples; includes sim dependencies and extra rendering dependencies
+     - Dependencies for running examples, including visualization
    * - ``torch-cu12``
-     - PyTorch dependency needed to run examples that inference RL-trained control policies
+     - PyTorch dependency needed *in addition* to ``examples`` dependencies to run examples that inference RL-trained control policies
    * - ``dev``
-     - Dependencies for development; examples dependencies plus debugging-help packages
+     - Dependencies for development and testing
    * - ``docs``
      - Dependencies for building the documentation
 
@@ -92,6 +94,12 @@ Run an example with additional dependencies:
 .. code-block:: console
 
     uv run --extra examples newton/examples/example_humanoid.py
+
+Run an example that inferences an RL policy:
+
+.. code-block:: console
+
+    uv run --extra examples --extra torch-cu12 newton/examples/example_anymal_c_walk.py
 
 Method 2: Using a Virtual Environment Setup by uv
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
