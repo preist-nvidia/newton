@@ -22,7 +22,7 @@ and [NVIDIA](https://www.nvidia.com/).
 
 ## Development
 
-See the [installation guide](https://newton-physics.github.io/newton/guide/installation.html) for instructions on how to setup and get started.
+See the [installation guide](https://newton-physics.github.io/newton/guide/installation.html) for instructions on how to set up and get started.
 
 ## Examples
 
