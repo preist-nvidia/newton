@@ -19,7 +19,7 @@
 # Shows how to control Anymal C with a policy pretrained in physx.
 #
 # Example usage:
-# uv run --extra examples --extra torch-cu12 newton/examples/example_anymal_c_walk_on_sand.py
+# uv run --extra examples --extra torch-cu12 newton/examples/example_anymal_c_walk_physx_policy.py
 #
 ###########################################################################
 
