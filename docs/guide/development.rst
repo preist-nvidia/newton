@@ -1,5 +1,5 @@
-Development Guide
-=================
+Development
+===========
 
 This document is a guide for developers who want to contribute to the project or understand its internal workings in more detail.
 
@@ -44,8 +44,7 @@ and by default runs in up to eight parallel processes. On some systems, the
 tests must be run in a serial manner with ``--serial-fallback`` due to an
 outstanding bug.
 
-Some tests rely on optional dependencies (like `usd-core <https://pypi.org/project/usd-core/>`__) and will be skipped if not installed.  
-Pass ``--help`` to either runner to see all available flags.
+Pass ``--help`` to either run method below to see all available flags.
 
 .. tab-set::
     :sync-group: env
@@ -67,6 +66,14 @@ Pass ``--help`` to either runner to see all available flags.
             python -m pip install -e .[dev]
             # run tests
             python -m newton.tests
+            
+Most tests run when the ``dev`` extras are installed. The tests that run examples that use PyTorch to inference an RL policy are skipped if the ``torch`` dependency is not installed. In order to run these tests, include the ``torch-cu12`` extras:
+
+
+.. code-block:: console
+
+    # install development extras and run tests
+    uv run --extra dev --extra torch-cu12 -m newton.tests
 
 To generate a coverage report:
 

@@ -87,7 +87,7 @@ Run an example with minimal dependencies:
 
 .. code-block:: console
 
-    uv run newton/examples/basic/hello_world.py
+    uv run newton/examples/basic/example_basic_pendulum.py --viewer null
 
 Run an example with additional dependencies:
 
