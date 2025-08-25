@@ -56,6 +56,7 @@ examples = [
     "newton-physics[importers]",     # include import dependencies
     "pyglet>=2.1.6",                 # for OpenGL viewer
     "GitPython>=3.1.44",             # for downloading assets via newton.utils.download_asset()
+    "imgui[pyglet]>=2.0.0",          # for viewer GUI
 ]
 
 # Extra dependency needed to run examples that inference an RL policy

@@ -70,7 +70,7 @@ class ViewerGL(ViewerBase):
         self.renderer = RendererGL(vsync=vsync, screen_width=width, screen_height=height, headless=headless)
         self.renderer.set_title("Newton Viewer")
 
-        self._paused = True
+        self._paused = False
 
         # State caching for selection panel
         self._last_state = None
