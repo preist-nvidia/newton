@@ -10,6 +10,8 @@ Please refer to [the contribution guidelines](https://github.com/newton-physics/
 
 Newton welcomes contributions from the community. In order to avoid any surprises and to increase the chance of contributions being merged, we encourage contributors to communicate their plans proactively by opening a GitHub Issue or starting a Discussion in the corresponding repository.
 
+Please also refer to the [development guide](https://newton-physics.github.io/newton/guide/development.html).
+
 There are several ways to participate in the Newton community:
 
 ## Questions, Discussions, Suggestions
@@ -39,8 +41,8 @@ There are several ways to participate in the Newton community:
 * Open a new pull request for the fix and test.
 * Write a description of the bug and the fix.
 * Mention related issues in the description: E.g. if the patch fixes Issue \#33, write Fixes \#33.
-* Have a signed CLA on file (see [Legal Requirements](#legal-requirements)).
-* Have the pull request approved by a [Project Member](#project-members) and merged into the codebase.
+* Have a signed CLA on file (see [Legal Requirements](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#legal-requirements)).
+* Have the pull request approved by a [Project Member](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#project-members) and merged into the codebase.
 
 ## Improving Performance
 
@@ -48,8 +50,8 @@ There are several ways to participate in the Newton community:
 * Open a new pull request with the optimization, and the benchmark, if applicable.
 * Write a description of the performance optimization.
 * Mention related issues in the description: E.g. if the optimization addresses Issue \#42, write Addresses \#42.
-* Have a signed CLA on file (see [Legal Requirements](#legal-requirements)).
-* Have the pull request approved by a [Project Member](#project-members) and merged into the codebase.
+* Have a signed CLA on file (see [Legal Requirements](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#legal-requirements)).
+* Have the pull request approved by a [Project Member](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#project-members) and merged into the codebase.
 
 ## Adding a Feature or Solver
 
@@ -57,19 +59,19 @@ There are several ways to participate in the Newton community:
   * propose and motivate the new feature or solver;
   * detail technical specifications;
   * and list changes or additions to the Newton API.
-* Wait for feedback from [Project Members](#project-members) before proceeding.
+* Wait for feedback from [Project Members](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#project-members) before proceeding.
 * Implement the feature or solver following the [style guide](https://newton-physics.github.io/newton/development-guide.html#style-guide).
 * Add comprehensive testing and benchmarking for the new feature or solver.
 * Ensure all existing tests pass and that existing benchmarks do not regress.
 * Update or add documentation for the new feature or solver.
-* Have a signed CLA on file (see [Legal Requirements](#legal-requirements)).
-* Have the pull request approved by a [Project Member](#project-members) and merged into the codebase.
+* Have a signed CLA on file (see [Legal Requirements](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#legal-requirements)).
+* Have the pull request approved by a [Project Member](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#project-members) and merged into the codebase.
 
 ## Adding Simulation Assets
 
 * Before proposing to add any assets to the Newton project, make sure that the assets are properly licensed for use and distribution. If you are unsure about the license, open a new discussion.
 * The Newton project hosts possibly large simulation assets such as models, textures, datasets, or pre-trained policies in the [newton-assets](https://github.com/newton-physics/newton-assets) repository to keep the main newton repository small.
 * Therefore, along with a pull request in the main newton repository that relies on new assets, open a corresponding pull request in the [newton-assets](https://github.com/newton-physics/newton-assets) repository.
-* Make sure to include the license information by adding to the [LICENSE](https://github.com/newton-physics/newton-assets/blob/main/LICENSE) file in the [newton-assets](https://github.com/newton-physics/newton-assets) root.
-* Have a signed CLA on file (see [Legal Requirements](#legal-requirements)).
-* Have the pull request approved by a [Project Member](#project-members) and merged into the asset repository.
+* Follow the instructions in the [README](https://github.com/newton-physics/newton-assets) of the newton-assets repository.
+* Have a signed CLA on file (see [Legal Requirements](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#legal-requirements)).
+* Have the pull request approved by a [Project Member](https://github.com/newton-physics/newton-governance/blob/main/CONTRIBUTING.md#project-members) and merged into the asset repository.
