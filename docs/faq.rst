@@ -1,6 +1,8 @@
 Frequently Asked Questions (FAQ)
 ================================
 
+This FAQ addresses general questions about Newton. For technical questions and answers, please refer to `GitHub Discussions <https://github.com/newton-physics/newton/discussions>`_.
+
 What is Newton?
 ----------------
 
