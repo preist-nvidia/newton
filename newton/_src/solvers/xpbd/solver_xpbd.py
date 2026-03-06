@@ -721,5 +721,3 @@ class SolverXPBD(SolverBase):
 
             if self.has_kinematic_bodies and model.body_count:
                 self.copy_kinematic_body_state(model, state_in, state_out)
-
-            return state_out

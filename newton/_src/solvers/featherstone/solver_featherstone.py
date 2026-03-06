@@ -757,5 +757,3 @@ class SolverFeatherstone(SolverBase):
             self.integrate_particles(model, state_in, state_out, dt)
 
             self._step += 1
-
-            return state_out
