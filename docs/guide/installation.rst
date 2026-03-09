@@ -192,9 +192,9 @@ dependency sets are defined in the `pyproject.toml <https://github.com/newton-ph
    * - ``examples``
      - Dependencies for running examples, including visualization (includes ``sim`` + ``importers``)
    * - ``torch-cu12``
-     - PyTorch (CUDA 12) needed *in addition* to ``examples`` to run RL policy examples
+     - PyTorch (CUDA 12) for running RL policy examples (includes ``examples``)
    * - ``torch-cu13``
-     - PyTorch (CUDA 13) needed *in addition* to ``examples`` to run RL policy examples
+     - PyTorch (CUDA 13) for running RL policy examples (includes ``examples``)
    * - ``notebook``
      - Jupyter notebook support with Rerun visualization (includes ``examples``)
    * - ``dev``
