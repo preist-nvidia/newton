@@ -115,7 +115,7 @@ See a list of all available examples:
 Quick Start
 ^^^^^^^^^^^
 
-After installing Newton with the ``examples`` or ``sim`` extra, you can build
+After installing Newton, you can build
 models, create solvers, and run simulations directly from Python. A typical
 workflow looks like this:
 

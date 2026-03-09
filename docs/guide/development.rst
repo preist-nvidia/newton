@@ -164,7 +164,7 @@ Pass ``--help`` to either run method below to see all available flags.
 Most tests run when the ``dev`` extras are installed. The tests using PyTorch
 to run inference on an RL policy are skipped if the ``torch`` dependency is
 not installed. In order to run these tests, include the ``torch-cu12`` or
-``torch-cu13`` extras following your CUDA version:
+``torch-cu13`` extras matching your NVIDIA driver's CUDA support:
 
 .. tab-set::
     :sync-group: env
