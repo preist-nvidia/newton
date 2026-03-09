@@ -18,7 +18,7 @@ repository:
 
 .. code-block:: console
 
-    git clone git@github.com:newton-physics/newton.git
+    git clone https://github.com/newton-physics/newton.git
     cd newton
 
 Method 1: Using uv (Recommended)
@@ -96,7 +96,7 @@ Then locally install Newton in editable mode with its development dependencies:
 
 .. code-block:: console
 
-    pip install -e .[dev] --extra-index-url https://pypi.nvidia.com/
+    pip install -e ".[dev]" --extra-index-url https://pypi.nvidia.com/
 
 The ``--extra-index-url`` flag points pip to the NVIDIA package index, which is
 required to find ``warp-lang`` versions newer than those available on PyPI.
@@ -158,7 +158,7 @@ Pass ``--help`` to either run method below to see all available flags.
         .. code-block:: console
 
             # install dev extras (including testing & coverage deps)
-            python -m pip install -e .[dev]
+            python -m pip install -e ".[dev]"
             # run tests
             python -m newton.tests
             
@@ -181,7 +181,7 @@ Most tests run when the ``dev`` extras are installed. The tests that run example
         .. code-block:: console
 
             # install both dev and torch-cu12 extras (need to pull from PyTorch CUDA 12.8 wheel index)
-            python -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 -e .[dev,torch-cu12]
+            python -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 -e ".[dev,torch-cu12]"
             # run tests
             python -m newton.tests
 
@@ -334,7 +334,7 @@ To build the documentation locally, ensure you have the documentation dependenci
 
         .. code:: console
 
-            python -m pip install -e .[docs]
+            python -m pip install -e ".[docs]"
             cd path/to/newton/docs && make html
 
 The built documentation will be available in ``docs/_build/html``.

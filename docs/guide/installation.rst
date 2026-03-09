@@ -175,7 +175,7 @@ Extra Dependencies
 
 Newton's mandatory dependencies are `NVIDIA Warp <https://github.com/NVIDIA/warp>`_ and
 `newton-actuators <https://github.com/newton-physics/newton-actuators>`_. Additional optional
-dependency sets are defined in the `pyproject.toml <https://github.com/newton-physics/newton/blob/main/pyproject.toml>`_ file:
+dependency sets are defined in ``pyproject.toml``:
 
 .. list-table::
    :widths: 20 80
