@@ -168,6 +168,8 @@ robot template across many worlds and step them all simultaneously on the GPU:
 See the :doc:`/guide/key-concepts` guide and :doc:`/integrations/isaac-lab`
 for more details.
 
+.. _extra-dependencies:
+
 Extra Dependencies
 ------------------
 

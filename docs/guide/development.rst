@@ -57,8 +57,8 @@ available examples:
 
     uv run -m newton.examples
 
-See the :ref:`installation:Extra Dependencies` section of the installation
-guide for a description of all available extras.
+See the :ref:`extra-dependencies` section of the installation guide for a
+description of all available extras.
 
 Method 2: Using pip in a Virtual Environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
