@@ -105,8 +105,8 @@ The table below demonstrates PhysX attribute remapping with both direct mapping 
      - ``armature``
      - Direct mapping
    * - ``physxScene:timeStepsPerSecond``
-     - ``time_step``
-     - ``1.0 / timeStepsPerSecond``
+     - ``time_steps_per_second``
+     - Direct mapping
    * - ``physxArticulation:enabledSelfCollisions``
      - ``self_collision_enabled`` (per articulation)
      - Direct mapping
@@ -142,9 +142,9 @@ Similarly, MuJoCo attributes can be remapped to Newton. Note that ``mjc:solref``
    * - ``mjc:armature``
      - ``armature``
      - Direct mapping
-   * - ``mjc:solref``
-     - ``stiffness``/``damping``
-     - ``k = 1/(timeconst^2)``, ``b = 2*dampratio/timeconst``
+   * - ``mjc:option:timestep``
+     - ``time_steps_per_second``
+     - ``int(1 / timestep)``
 
 **Example USD with remapped attributes:**
 
@@ -158,7 +158,7 @@ The following USD example demonstrates how PhysX attributes are authored in a US
        prepend apiSchemas = ["PhysxSceneAPI"]
    ) {
        # PhysX scene settings that Newton can understand
-       uint physxScene:timeStepsPerSecond = 120  # → time_step = 1/120 = 0.0083
+       uint physxScene:timeStepsPerSecond = 120  # → time_steps_per_second = 120
        uint physxScene:maxVelocityIterationCount = 16  # → max_solver_iterations = 16
    }
    
@@ -178,8 +178,9 @@ The following USD example demonstrates how PhysX attributes are authored in a US
    def Mesh "collision_shape" (
        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
    ) {
-       # PhysX collision settings
-      float physxCollision:contactOffset = 0.02  # → gap = 0.02
+       # PhysX collision settings (gap = contactOffset - restOffset)
+       float physxCollision:contactOffset = 0.05
+       float physxCollision:restOffset = 0.01   # → gap = 0.04
    }
 
 2. Priority-Based Resolution
@@ -191,9 +192,9 @@ When multiple physics solvers define conflicting attributes for the same propert
 
 The attribute resolution process follows a three-layer fallback hierarchy to determine which value to use:
 
-1. **Authored Values**: First resolver in priority order with an authored value wins
-2. **Explicit Defaults**: User-provided default parameter in ``Resolver.get_value(default=...)`` calls with a non-None value wins if no authored value is found
-3. **Schema Mapping Defaults**: Resolver-specific default values from the schema definition if no authored value or explicit default is found
+1. **Authored Values**: Resolvers are queried in priority order; the first resolver that finds an authored value on the prim returns it and remaining resolvers are not consulted.
+2. **Importer Defaults**: If no authored value is found, Newton's importer uses a property-specific fallback (e.g. ``builder.default_joint_cfg.armature`` for joint armature). This takes precedence over schema-level defaults.
+3. **Approximated Schema Defaults**: If neither an authored value nor an importer default is available, Newton falls back to a hardcoded approximation of each solver's schema default, defined in Newton's resolver mapping. These approximations will be replaced by actual USD schema defaults in a future release.
 
 **Configuring Resolver Priority:**
 
@@ -270,7 +271,7 @@ Each solver has its own namespace prefixes for solver-specific attributes. The t
      - ``mjc:model:joint:testMjcJointScalar``, ``mjc:state:joint:testMjcJointVec3``
    * - **Newton**
      - ``newton``
-     - ``newton:hullVertexLimit``, ``newton:contactGap``
+     - ``newton:maxHullVertices``, ``newton:contactGap``
 
 **Accessing Collected Solver-Specific Attributes:**
 
