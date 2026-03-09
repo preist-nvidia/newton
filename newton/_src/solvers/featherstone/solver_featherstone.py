@@ -328,7 +328,7 @@ class SolverFeatherstone(SolverBase):
         control: Control,
         contacts: Contacts,
         dt: float,
-    ):
+    ) -> None:
         requires_grad = state_in.requires_grad
 
         # optionally create dynamical auxiliary variables

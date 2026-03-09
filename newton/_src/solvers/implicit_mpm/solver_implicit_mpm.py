@@ -1470,7 +1470,7 @@ class SolverImplicitMPM(SolverBase):
         control: newton.Control,
         contacts: newton.Contacts,
         dt: float,
-    ):
+    ) -> None:
         model = self.model
 
         with wp.ScopedDevice(model.device):
