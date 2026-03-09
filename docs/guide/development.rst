@@ -11,7 +11,95 @@ Please refer to `CONTRIBUTING.md <https://github.com/newton-physics/governance/b
 Installation
 ------------
 
-To install Newton, see the :doc:`installation` guide.
+For regular end-user installation, see the :doc:`installation` guide.
+
+To install Newton from source for development or contribution, first clone the
+repository:
+
+.. code-block:: console
+
+    git clone git@github.com:newton-physics/newton.git
+    cd newton
+
+Method 1: Using uv (Recommended)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install `uv <https://docs.astral.sh/uv/>`_ if you don't have it already:
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: macOS / Linux
+        :sync: linux
+
+        .. code-block:: console
+
+            curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    .. tab-item:: Windows
+        :sync: windows
+
+        .. code-block:: console
+
+            powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Then create a local project environment with the ``dev`` dependency extras:
+
+.. code-block:: console
+
+    uv sync --extra dev
+
+After syncing, the ``dev`` extras are available to all ``uv run`` commands
+without needing to pass ``--extra dev`` each time. For example, to list all
+available examples:
+
+.. code-block:: console
+
+    uv run -m newton.examples
+
+See the :ref:`installation:Extra Dependencies` section of the installation
+guide for a description of all available extras.
+
+Method 2: Using pip in a Virtual Environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To manually manage a virtual environment, create and activate one first:
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: macOS / Linux
+        :sync: linux
+
+        .. code-block:: console
+
+            python -m venv .venv
+            source .venv/bin/activate
+
+    .. tab-item:: Windows (console)
+        :sync: windows
+
+        .. code-block:: console
+
+            python -m venv .venv
+            .venv\Scripts\activate.bat
+
+    .. tab-item:: Windows (PowerShell)
+        :sync: windows-ps
+
+        .. code-block:: console
+
+            python -m venv .venv
+            .venv\Scripts\Activate.ps1
+
+Then locally install Newton in editable mode with its development dependencies:
+
+.. code-block:: console
+
+    pip install -e .[dev] -f https://pypi.nvidia.com/warp-lang/
+
+The ``-f`` flag points pip to the NVIDIA package index, which is required to
+find ``warp-lang`` versions newer than those available on PyPI.
 
 Python Dependency Management
 ----------------------------
