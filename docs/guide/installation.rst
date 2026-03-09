@@ -47,7 +47,6 @@ Install with the ``examples`` extra to run the built-in examples (includes simul
 .. code-block:: console
 
     pip install "newton[examples]"
-    python -m newton.examples basic_pendulum
 
 We recommend installing Newton inside a virtual environment to avoid conflicts
 with other packages:
@@ -98,8 +97,9 @@ After installing Newton with the ``examples`` extra, run an example with:
     python -m newton.examples basic_pendulum
 
 Run an example that runs RL policy inference. Choose the extra matching your
-installed CUDA version (``torch-cu12`` for CUDA 12.x, ``torch-cu13`` for CUDA 13.x);
-you can find out your CUDA version by running ``nvidia-smi``:
+NVIDIA driver's CUDA support (``torch-cu12`` for CUDA 12.x, ``torch-cu13`` for
+CUDA 13.x); run ``nvidia-smi`` to check the supported CUDA version (shown in
+the top-right corner of the output):
 
 .. code-block:: console
 

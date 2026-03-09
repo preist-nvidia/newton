@@ -96,10 +96,10 @@ Then locally install Newton in editable mode with its development dependencies:
 
 .. code-block:: console
 
-    pip install -e .[dev] -f https://pypi.nvidia.com/warp-lang/
+    pip install -e .[dev] --extra-index-url https://pypi.nvidia.com/
 
-The ``-f`` flag points pip to the NVIDIA package index, which is required to
-find ``warp-lang`` versions newer than those available on PyPI.
+The ``--extra-index-url`` flag points pip to the NVIDIA package index, which is
+required to find ``warp-lang`` versions newer than those available on PyPI.
 
 Python Dependency Management
 ----------------------------
