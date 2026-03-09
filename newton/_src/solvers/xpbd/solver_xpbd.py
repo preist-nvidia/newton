@@ -129,7 +129,7 @@ class SolverXPBD(SolverBase):
                 self.body_inv_inertia_effective = wp.array(inv_inertia, dtype=wp.mat33, device=model.device)
 
     @override
-    def notify_model_changed(self, flags: int):
+    def notify_model_changed(self, flags: int) -> None:
         if flags & (SolverNotifyFlags.BODY_PROPERTIES | SolverNotifyFlags.BODY_INERTIAL_PROPERTIES):
             self._update_kinematic_state()
 

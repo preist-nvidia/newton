@@ -3039,7 +3039,7 @@ class SolverMuJoCo(SolverBase):
         )
 
     @override
-    def notify_model_changed(self, flags: int):
+    def notify_model_changed(self, flags: int) -> None:
         need_const_fixed = False
         need_const_0 = False
         need_length_range = False
