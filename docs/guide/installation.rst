@@ -97,7 +97,9 @@ After installing Newton with the ``examples`` extra, run an example with:
 
     python -m newton.examples basic_pendulum
 
-Run an example that runs RL policy inference (requires ``torch-cu12`` or ``torch-cu13``):
+Run an example that runs RL policy inference. Choose the extra matching your
+installed CUDA version (``torch-cu12`` for CUDA 12.x, ``torch-cu13`` for CUDA 13.x);
+you can find out your CUDA version by running ``nvidia-smi``:
 
 .. code-block:: console
 
