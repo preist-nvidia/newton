@@ -97,7 +97,7 @@ The following tables show examples of how solver-specific attributes are mapped 
 
 **PhysX Attribute Remapping Examples:**
 
-The table below demonstrates PhysX attribute remapping with both direct mapping and transformation examples:
+The table below shows PhysX attribute remapping examples:
 
 .. list-table:: PhysX Attribute Remapping
    :header-rows: 1
@@ -108,9 +108,6 @@ The table below demonstrates PhysX attribute remapping with both direct mapping 
      - **Transformation**
    * - ``physxJoint:armature``
      - ``armature``
-     - Direct mapping
-   * - ``physxScene:timeStepsPerSecond``
-     - ``time_steps_per_second``
      - Direct mapping
    * - ``physxArticulation:enabledSelfCollisions``
      - ``self_collision_enabled`` (per articulation)
@@ -135,6 +132,8 @@ The parser resolves ``self_collision_enabled`` from either ``newton:selfCollisio
 
 **MuJoCo Attribute Remapping Examples:**
 
+The table below shows MuJoCo attribute remapping examples, including both direct mappings and transformations:
+
 .. list-table:: MuJoCo Attribute Remapping
    :header-rows: 1
    :widths: 30 30 40
@@ -145,9 +144,9 @@ The parser resolves ``self_collision_enabled`` from either ``newton:selfCollisio
    * - ``mjc:armature``
      - ``armature``
      - Direct mapping
-   * - ``mjc:option:timestep``
-     - ``time_steps_per_second``
-     - ``int(1 / timestep)``
+   * - ``mjc:margin``, ``mjc:gap``
+     - ``margin``
+     - ``margin = mjc:margin - mjc:gap``
 
 **Example USD with remapped attributes:**
 
@@ -161,7 +160,6 @@ The following USD example demonstrates how PhysX attributes are authored in a US
        prepend apiSchemas = ["PhysxSceneAPI"]
    ) {
        # PhysX scene settings that Newton can understand
-       uint physxScene:timeStepsPerSecond = 120  # → time_steps_per_second = 120
        uint physxScene:maxVelocityIterationCount = 16  # → max_solver_iterations = 16
    }
 
